@@ -55,7 +55,9 @@ If you have Node.js already installed, run:
 $ npx -y google-backup \
   --username "john.doe@gmail.com" \
   --password "abcd efgh ijkl mnop" \
-  --filepath "~/Backups/Google/"
+  --filepath "~/Backups/Google/" \
+  # add this flag to rerun once if an error occurs
+  --rerun-after-error
 ```
 
 > Hint: You can schedule this in a cronjob for automated backups.
@@ -77,3 +79,8 @@ $ docker run \
 ## Also see
 
 Looking to backup iCloud Drive in a similar way? See [iCloud Backup](https://github.com/WeeJeWel/node-icloud-backup).
+
+## Troubleshooting
+
+If the connection drops unexpectedly, use the `--rerun-after-error` flag (or set
+`GOOGLE_BACKUP_RERUN_AFTER_ERROR=1`) to automatically start the backup again.
